@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weather & City Insights</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div>
+        <h1 class="title">Weather & City Insights</h1>
+        <p class="subtitle">Server-side OpenWeather + Country info + City facts</p>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="card">
+        <form id="searchForm" class="form">
+          <label class="label" for="cityInput">City</label>
+          <div class="row">
+            <input id="cityInput" class="input" type="text" placeholder="e.g., Karachi, London, New York" autocomplete="off" />
+            <button class="button" type="submit">Search</button>
+          </div>
+          <p class="hint">All third-party APIs are called by the server (no keys in the browser).</p>
+        </form>
+
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2 class="cardTitle">Weathe</h2>
+          <dl class="dl" id="weatherDl">
+            <div class="dlRow"><dt>Temperature</dt><dd id="w_temp">-</dd></div>
+            <div class="dlRow"><dt>Feels like</dt><dd id="w_feels">-</dd></div>
+            <div class="dlRow"><dt>Description</dt><dd id="w_desc">-</dd></div>
+            <div class="dlRow"><dt>Wind speed</dt><dd id="w_wind">-</dd></div>
+            <div class="dlRow"><dt>Country code</dt><dd id="w_country">-</dd></div>
+            <div class="dlRow"><dt>Coordinates</dt><dd id="w_coord">-</dd></div>
+            <div class="dlRow"><dt>Rain (last 3h)</dt><dd id="w_rain">-</dd></div>
+          </dl>
+        </article>
+
+        <article class="card">
+          <h2 class="cardTitle">Country (Extra API: REST Countries)</h2>
+          <div class="countryHeader">
+            <img id="c_flag" class="flag" alt="" />
+            <div>
+              <div id="c_name" class="big">-</div>
+              <div id="c_region" class="muted">-</div>
+            </div>
+          </div>
+          <dl class="dl">
+            <div class="dlRow"><dt>Capital</dt><dd id="c_capital">-</dd></div>
+            <div class="dlRow"><dt>Population</dt><dd id="c_population">-</dd></div>
+            <div class="dlRow"><dt>Languages</dt><dd id="c_languages">-</dd></div>
+            <div class="dlRow"><dt>Currencies</dt><dd id="c_currencies">-</dd></div>
+          </dl>
+        </article>
+
+        <article class="card">
+          <h2 class="cardTitle">City Fact (Extra API: Wikipedia)</h2>
+          <div class="factHeader">
+            <img id="f_thumb" class="thumb" alt="" />
+            <div>
+              <div id="f_title" class="big">-</div>
+              <div id="f_desc" class="muted">-</div>
+            </div>
+          </div>
+          <p id="f_extract" class="paragraph">Search for a city to see a short fact.</p>
+          <a id="f_link" class="link" href="#" target="_blank" rel="noreferrer">Open on Wikipedia</a>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>Built for an API assignment: weather fetched server-side, UI kept clean.</small>
+    </footer>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
